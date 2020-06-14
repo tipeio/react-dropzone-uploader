@@ -92,7 +92,9 @@
     "build-docs": "./build_docs.sh",
     "test": "tsc && jest --coverage",
     "prettier-check": "prettier --check src/**/*.ts src/**/*.tsx",
-    "prettier": "prettier --write src/**/*.ts src/**/*.tsx"
+    "prettier": "prettier --write src/**/*.ts src/**/*.tsx",
+    "semver": "lerna version",
+    "release": "lerna publish from-package"
   },
   "dependencies": {},
   "husky": {
