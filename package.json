@@ -1,7 +1,7 @@
 {
   "name": "@tipe/react-dropzone-uploader",
   "version": "2.11.0",
-  "author": "Kyle Bebak <kylebebak@gmail.com>",
+  "author": "Scott Moss <willscottmoss@gmail.com>",
   "description": "React file dropzone and uploader: fully customizable, progress indicators, upload cancellation and restart, zero deps and excellent TypeScript support",
   "main": "./dist/index.js",
   "module": "./dist/index.es.js",
@@ -20,7 +20,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/fortana-co/react-dropzone-uploader.git"
+    "url": "git://github.com/tipeio/react-dropzone-uploader.git"
   },
   "license": "MIT",
   "peerDependencies": {
