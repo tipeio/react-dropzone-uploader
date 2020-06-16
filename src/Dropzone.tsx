@@ -5,6 +5,8 @@ import LayoutDefault from './Layout'
 import InputDefault from './Input'
 import PreviewDefault from './Preview'
 import SubmitButtonDefault from './SubmitButton'
+import {renderCSS} from './styles'
+
 import {
   formatBytes,
   formatDuration,
@@ -630,7 +632,7 @@ class Dropzone extends React.Component<IDropzoneProps, { active: boolean; dragge
     const SubmitButton = SubmitButtonComponent || SubmitButtonDefault
     const Layout = LayoutComponent || LayoutDefault
 
-    let previews = null
+    let previews: any = null
     if (PreviewComponent !== null) {
       previews = files.map(f => {
         return (
@@ -706,32 +708,39 @@ class Dropzone extends React.Component<IDropzoneProps, { active: boolean; dragge
       style = { ...(style || {}), ...(dropzoneActiveStyle || {}) }
     }
 
-    return (
+    const MainLayout = () => (
       //@ts-ignore
       <Layout
-        input={input}
-        previews={previews}
-        submitButton={submitButton}
-        dropzoneProps={{
-          ref: this.dropzone,
-          className,
-          style: style as React.CSSProperties,
-          onDragEnter: this.handleDragEnter,
-          onDragOver: this.handleDragOver,
-          onDragLeave: this.handleDragLeave,
-          onDrop: dropzoneDisabled ? this.handleDropDisabled : this.handleDrop,
-        }}
-        files={files}
-        extra={
-          {
-            ...extra,
-            onFiles: this.handleFiles,
-            onCancelFile: this.handleCancel,
-            onRemoveFile: this.handleRemove,
-            onRestartFile: this.handleRestart,
-          } as IExtraLayout
-        }
-      />
+          input={input}
+          previews={(previews)}
+          submitButton={submitButton}
+          dropzoneProps={{
+            ref: this.dropzone,
+            className,
+            style: style as React.CSSProperties,
+            onDragEnter: this.handleDragEnter,
+            onDragOver: this.handleDragOver,
+            onDragLeave: this.handleDragLeave,
+            onDrop: dropzoneDisabled ? this.handleDropDisabled : this.handleDrop,
+          }}
+          files={files}
+          extra={
+            {
+              ...extra,
+              onFiles: this.handleFiles,
+              onCancelFile: this.handleCancel,
+              onRemoveFile: this.handleRemove,
+              onRestartFile: this.handleRestart,
+            } as IExtraLayout
+          }
+        />
+    )
+    return (
+      //@ts-ignore
+      <React.Fragment>
+        {renderCSS()}
+        <MainLayout />
+      </React.Fragment>
     )
   }
 }

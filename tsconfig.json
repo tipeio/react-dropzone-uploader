@@ -8,6 +8,6 @@
     "noUnusedParameters": true,
     "strict": true
   },
-  "include": ["src/*.tsx", "src/*.ts"],
+  "include": ["src/*.tsx", "src/*.ts", "custom.d.ts"],
   "exclude": ["node_modules"]
 }
