@@ -100,10 +100,5 @@
     "semver": "lerna version",
     "release": "lerna publish from-package"
   },
-  "dependencies": {},
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run prettier-check"
-    }
-  }
+  "dependencies": {}
 }
